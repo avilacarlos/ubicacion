@@ -1,0 +1,20 @@
+{
+  "name": "art-print",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+ "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@lottiefiles/lottie-player": "^2.0.12",
+    "parallax-js": "^3.1.0",
+    "vite": "^7.2.7"
+  }
+}
