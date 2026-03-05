@@ -19,7 +19,7 @@
 body {
     background-color: #ffffff;
     /* Fondo oscuro por si se ve en PC */
-    height: 100dvh;
+    height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@ body {
     width: 100%;
     max-width: 480px;
     /* Ancho máximo de un celular grande */
-    height: 100dvh;
+    height: 100svh;
     /* Altura completa del viewport móvil */
     background-image: url('/fondo.webp');
     background-size: cover;
