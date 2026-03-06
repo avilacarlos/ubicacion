@@ -48,15 +48,15 @@ body {
 
 /* ========= PARTE SUPERIOR (45% de la pantalla) ========= */
 .top-section {
-    height: 40%;
+    height: 50%; /* Bajamos de 40% a 35% */
     width: 100%;
     position: relative;
     z-index: 100;
-    margin: auto;
+    margin: 0; /* Quitamos el margin auto */
 }
 
 #logo-parallax-scene {
-    width: 85%;
+    width: 75%;
     max-width: 420px;
     height: 100%;
     position: absolute;
@@ -99,23 +99,20 @@ body {
 
 /* ========= PARTE INFERIOR (Panel de Vidrio) ========= */
 .bottom-sheet {
-    height: 60%;
-    /* El resto de la pantalla */
+    height: 60%; /* Subimos de 60% a 65% */
     width: 100%;
-    background-color: #ffffff25;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background-color: var(--blanco-vidrio); /* Usamos la variable que ya tenías */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
-
-    /* Animación de entrada estilo App */
     animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: 10;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    overflow-y: auto; /* IMPORTANTE: Si el cel es muy pequeño, permitirá deslizar */
+    
 }
 
 @keyframes slideUp {
@@ -131,14 +128,14 @@ body {
 }
 
 .sheet-content {
-    padding: 1.5rem 2rem;
-    height: 100%;
+    padding: 1.2rem 1.5rem; /* Reducimos padding */
+    min-height: 100%; /* Asegura que ocupe todo */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0%;
+    /* Añadimos espacio de seguridad para la barra del celular */
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
 }
-
 /* Pequeña barra decorativa arriba del panel */
 .drag-handle {
     width: 50px;
@@ -159,17 +156,16 @@ body {
 
 .header-text p {
     color: var(--rosa-principal);
-    font-size: 1.1rem;
+    font-size: 1rem; /* Bajamos de 1.1rem */
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Bajamos de 1.5rem */
 }
-
 /* Estilos de los Botones */
 .links-grid {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px; /* Reducimos el espacio entre botones de 12px a 8px */
 }
 
 .btn {
@@ -177,13 +173,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 14px;
-    border-radius: 15px;
+    padding: 12px; /* Reducimos de 14px a 12px */
+    border-radius: 12px; /* Un poco más sutil */
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Bajamos un poco la fuente */
     letter-spacing: 0.5px;
     transition: transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .btn:active {
@@ -212,31 +207,29 @@ body {
 
 /* Footer (Horario) */
 .info-footer {
-    margin-top: auto;
+    
     /* Empuja esto al final del contenedor */
     width: 100%;
     text-align: center;
-    padding-bottom: 1rem;
+    
 }
 
 .horario-box {
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 10px;
+    margin-top: 15px; /* Margen superior fijo */
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    margin: 5%0 5% 0;
+    gap: 0px;
 }
 
 .horario-box span {
-    font-size: 1.20rem;
+    font-size: 0.85rem; /* Mucho más pequeño para que no robe espacio */
     color: var(--texto-gris);
 }
 
 .horario-box strong {
-    font-size: 1.5rem;
+    font-size: 1.1rem; /* Bajamos de 1.5rem a 1.1rem */
     color: var(--rosa-principal);
 }
+
 
 /* Animación Mano - Posición Ajustada*/
