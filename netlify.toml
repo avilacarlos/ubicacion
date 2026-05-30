@@ -1,0 +1,4 @@
+[build]
+  # No ejecutar ningún comando de build, solo publicar el directorio dist ya compilado
+  command = ""
+  publish = "dist"
