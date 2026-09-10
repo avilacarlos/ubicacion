@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700;800&display=swap');
-
 :root {
     --rosa-principal: #d697b1;
     --rosa-secundario: #ff006a;
@@ -46,13 +44,14 @@ body {
     /* Sombra para resaltar en PC */
 }
 
-/* ========= PARTE SUPERIOR (45% de la pantalla) ========= */
+/* ========= PARTE SUPERIOR (45% de la pantalla estable) ========= */
 .top-section {
-    height: 50%; /* Bajamos de 40% a 35% */
+    flex: 0 0 45%;
+    height: 45%;
     width: 100%;
     position: relative;
     z-index: 100;
-    margin: 0; /* Quitamos el margin auto */
+    margin: 0;
 }
 
 #logo-parallax-scene {
@@ -89,6 +88,7 @@ body {
     width: 100%;
     /* Forzamos a que llene el ancho del contenedor */
     height: 100%;
+    aspect-ratio: 1 / 1;
     /* Forzamos a que llene el alto del contenedor */
     object-fit: contain;
     /* <--- LA MAGIA: Escala la imagen y la CENTRA automáticamente */
@@ -97,22 +97,29 @@ body {
     /* Un refuerzo extra para centrar */
 }
 
-/* ========= PARTE INFERIOR (Panel de Vidrio) ========= */
+/* ========= PARTE INFERIOR (Panel de Vidrio 55%) ========= */
 .bottom-sheet {
-    height: 60%; /* Subimos de 60% a 65% */
+    flex: 1 1 55%;
+    height: 55%;
     width: 100%;
-    background-color: var(--blanco-vidrio); /* Usamos la variable que ya tenías */
+    background-color: var(--blanco-vidrio);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
-    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     z-index: 10;
     display: flex;
     flex-direction: column;
     overflow-y: auto; /* IMPORTANTE: Si el cel es muy pequeño, permitirá deslizar */
-    
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bottom-sheet {
+        animation: none;
+    }
 }
 
 @keyframes slideUp {
@@ -188,9 +195,9 @@ body {
 
 /* Colores específicos para jerarquía visual */
 .btn-whatsapp {
-    background-color: var(--rosa-principal);
-    color: white;
-    border: 2px solid var(--rosa-principal);
+    background-color: #a74f76;
+    color: #ffffff;
+    border: 2px solid #a74f76;
 }
 
 .btn-maps {

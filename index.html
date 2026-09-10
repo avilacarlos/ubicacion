@@ -4,9 +4,21 @@
     
     
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Art & Print | Diseño y Papelería</title>
     
+        <!-- Google Fonts precargado de forma asíncrona no bloqueante -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700;800&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+        <noscript>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700;800&display=swap">
+        </noscript>
+
+        <!-- Preload de la imagen LCP con alta prioridad -->
+        <link rel="preload" as="image" href="/mancha.webp" type="image/webp" fetchpriority="high">
+
         <!-- Descripción para Google -->
         <meta name="description"
             content="Diseño gráfico, papelería creativa y personalizada en el Centro Histórico de la CDMX. Tarjetas, invitaciones y más.">
@@ -28,18 +40,18 @@
 </head>
 <body>
 
-    <!-- Simulación de pantalla de celular -->
-    <div class="mobile-screen">
+    <!-- Simulación de pantalla de celular (Semántica landmark <main> para accesibilidad) -->
+    <main class="mobile-screen">
 
         <!-- ========= ZONA SUPERIOR: LOGO PARALLAX ========= -->
         <div class="top-section">
             <div id="logo-parallax-scene">
-                <!-- Rutas para VITE (desde /public) -->
-                <div class="layer" data-depth="0.10"><img src="/mancha.webp" alt=""></div>
-                <div class="layer" data-depth="0.15"><img src="/aro2.webp" alt=""></div>
-                <div class="layer" data-depth="0.25"><img src="/aro1.webp" alt=""></div>
-                <div class="layer" data-depth="0.40"><img src="/flores.webp" alt=""></div>
-                <div class="layer" data-depth="0.60"><img src="/nombre.webp" alt="Art & Print"></div>
+                <!-- Rutas para VITE (desde /public) con dimensiones y fetchpriority para LCP y CLS -->
+                <div class="layer" data-depth="0.10"><img src="/mancha.webp" alt="Fondo decorativo de acuarela" width="500" height="500" fetchpriority="high"></div>
+                <div class="layer" data-depth="0.15"><img src="/aro2.webp" alt="Aro decorativo exterior" width="500" height="500"></div>
+                <div class="layer" data-depth="0.25"><img src="/aro1.webp" alt="Aro decorativo dorado" width="500" height="500"></div>
+                <div class="layer" data-depth="0.40"><img src="/flores.webp" alt="Flores decorativas" width="500" height="500"></div>
+                <div class="layer" data-depth="0.60"><img src="/nombre.webp" alt="Art & Print Logo" width="500" height="500"></div>
             </div>
         </div>
 
@@ -81,7 +93,7 @@
 
         
 
-    </div>
+    </main>
 
     <script type="module" src="/src/main.js"></script>
 </body>
