@@ -170,10 +170,11 @@ body {
 /* Estilos de los Botones */
 .links-grid {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px; /* Reducimos el espacio entre botones de 12px a 8px */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
 }
+
 
 .btn {
     text-decoration: none;
@@ -207,6 +208,7 @@ body {
 }
 
 .btn-web {
+    grid-column: 1 / -1;
     background: linear-gradient(135deg, var(--rosa-secundario) 0%, var(--rosa-principal) 100%);
     color: #fff;
     border: none;
