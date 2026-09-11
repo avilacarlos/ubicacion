@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://artandprint.netlify.app/sitemap.xml
