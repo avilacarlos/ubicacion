@@ -7,7 +7,6 @@ export default defineConfig({
       ignored: [
         '**/node_modules/**',
         '**/dist/**',
-        '**/public/**',
         '**/.git/**',
         '**/*.tmp',
         '**/*.log',
