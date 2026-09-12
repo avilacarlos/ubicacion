@@ -114,6 +114,8 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto; /* IMPORTANTE: Si el cel es muy pequeño, permitirá deslizar */
+    position: relative;
+    box-shadow: inset 0 0 0 1px rgba(214, 151, 177, 0.45), inset 0 0 20px rgba(255, 0, 106, 0.15), 0 -5px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -136,20 +138,30 @@ body {
 
 .sheet-content {
     padding: 1.2rem 1.5rem; /* Reducimos padding */
-    min-height: 100%; /* Asegura que ocupe todo */
+    min-height: 80%; /* Asegura que ocupe todo */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Añadimos espacio de seguridad para la barra del celular */
-    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    margin-top: auto;
+margin-bottom: auto;
+gap: .5rem; /* Espacio entre elementos */
+    
 }
 /* Pequeña barra decorativa arriba del panel */
 .drag-handle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 50px;
     height: 5px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    margin-bottom: 15px;
+}
+
+.header-text {
+    width: 100%;
+    text-align: center;
 }
 
 .header-text h2 {
@@ -166,13 +178,14 @@ body {
     font-size: 1rem; /* Bajamos de 1.1rem */
     font-weight: 600;
     margin-bottom: 1rem; /* Bajamos de 1.5rem */
+    text-align: center;
 }
 /* Estilos de los Botones */
 .links-grid {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 12px;
 }
 
 
@@ -266,7 +279,7 @@ body {
     margin-top: 15px; /* Margen superior fijo */
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 5px;
 }
 
 .horario-box span {
